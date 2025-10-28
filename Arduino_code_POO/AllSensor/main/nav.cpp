@@ -11,7 +11,7 @@ Cartcoord diff(Cartcoord A, Cartcoord B){
   return C;
 }
 
-nav::nav() : Kp(2.0), Kd(1.0), DELTA_T(0.1) {
+nav::nav() : {
   Serial.println("Initialising sailboat...");
   powerboard = new controlMotor();
   Serial.println("Motors ready.");
@@ -297,15 +297,6 @@ void nav::non_blocking_path_following(GPScoord list_points[], int nb_points, boo
     z = 0;
   }
   Serial.println("Path following done.");
-}
-
-void nav::basic_place_holder(int time_millis){
-  int t0 = millis();
-  while(millis - t0 < time_millis){
-    powerboard->set_angle_rudder(50); // Set rudder to full left
-    powerboard->set_angle_sail(SERVOMAX_SAIL); // Set the sail free/loose
-  }
-  return;
 }
 
 void nav::run_mission(){
