@@ -15,6 +15,7 @@
 #define PIN_SPI_CS 53
 
 double scalprod(Cartcoord A, Cartcoord B);
+Cartcoord diff(Cartcoord A, Cartcoord B);
 
 class nav {
 public:
