@@ -8,7 +8,6 @@
 class controlMotor {
 public:
   controlMotor();
-  int sail_control(int wind_direction);
   void set_angle_sail(int angle);
   void set_angle_rudder(int angle);
   int get_com_rud();
