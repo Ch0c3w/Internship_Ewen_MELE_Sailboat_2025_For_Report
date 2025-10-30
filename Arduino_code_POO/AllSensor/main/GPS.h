@@ -22,26 +22,20 @@ class GPS {
 public:
     GPS();
 
-    void update(); // Lit les trames NMEA, extrait les coordonnées si valides
-
+    void update();
     double getLatitude() const;
     double getLongitude() const;
     GPScoord getPoint() const;
-    bool parseGPGGA(const String& nmea);
     bool isValid() const;
     float getSOG();
     Cartcoord conversion(GPScoord point);
 
 private:
     TinyGPSPlus* gps = nullptr;
-    String nmeaBuffer;
     double latitude;
     double longitude;
     float SOG = 0;
-    int satellites;
     bool validdata;
-    bool parseGPRMC(const String& nmea); // Analyse la trame $GPRMC
-    double convertToDecimal(const String& raw, const String& direction); // Convertit DMM -> degrés décimaux
 };
 
 #endif
